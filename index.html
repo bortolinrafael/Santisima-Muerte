@@ -1,51 +1,89 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<meta name="viewport"
+content="width=device-width,
+initial-scale=1.0,
+maximum-scale=1.0,
+user-scalable=no">
 
 <title>La Santa Muerte</title>
 
 <style>
 
-html,body{
+*{
 margin:0;
 padding:0;
+box-sizing:border-box;
+}
+
+html,body{
 width:100%;
 height:100%;
 overflow:hidden;
-background:#000;
 font-family:Georgia,serif;
+background:#000;
 }
 
-/* FUNDO */
+/* ========================= */
+/* FUNDO AMBIENTE */
+/* ========================= */
 
 body{
+
 background:
-radial-gradient(circle at left, rgba(120,60,0,0.12), transparent 30%),
-radial-gradient(circle at right, rgba(120,60,0,0.12), transparent 30%),
+
+radial-gradient(circle at left,
+rgba(120,50,0,0.10),
+transparent 30%),
+
+radial-gradient(circle at right,
+rgba(120,50,0,0.10),
+transparent 30%),
+
+linear-gradient(
+to bottom,
+rgba(255,180,80,0.02),
+transparent 20%
+),
+
 #000;
 }
 
+/* ========================= */
 /* ALTAR */
+/* ========================= */
 
 #altar{
+
 position:fixed;
 inset:0;
+
 display:flex;
 justify-content:center;
 align-items:center;
+
 overflow:hidden;
+
+z-index:1;
 }
 
-/* IMAGEM */
+/* ========================= */
+/* SANTA */
+/* ========================= */
 
 #bg{
+
 position:absolute;
+
 top:50%;
 left:50%;
 
-transform:translate(-50%,-50%);
+transform:
+translate(-50%,-50%);
 
 height:100%;
 width:auto;
@@ -54,26 +92,35 @@ object-fit:contain;
 
 z-index:1;
 
-animation:breath 6s ease-in-out infinite;
+animation:
+breath 7s ease-in-out infinite;
 }
 
 @keyframes breath{
 
 0%{
-transform:translate(-50%,-50%) scale(1);
+transform:
+translate(-50%,-50%)
+scale(1);
 }
 
 50%{
-transform:translate(-50%,-50%) scale(1.02);
+transform:
+translate(-50%,-50%)
+scale(1.02);
 }
 
 100%{
-transform:translate(-50%,-50%) scale(1);
+transform:
+translate(-50%,-50%)
+scale(1);
 }
 
 }
 
+/* ========================= */
 /* TEXTO */
+/* ========================= */
 
 #textBox{
 
@@ -82,47 +129,57 @@ position:absolute;
 top:66%;
 left:50%;
 
-transform:translateX(-50%);
+transform:
+translateX(-50%);
 
 width:54%;
-max-width:500px;
+max-width:520px;
 
-z-index:5;
+z-index:10;
 
 text-align:center;
 
 font-size:2rem;
-line-height:1.15;
+line-height:1.14;
 
 font-weight:bold;
 
 color:#3a1c0f;
 
 text-shadow:
-0 2px 4px rgba(255,240,200,0.15),
-0 2px 10px rgba(0,0,0,0.4);
+0 2px 3px rgba(255,240,200,0.10),
+0 2px 8px rgba(0,0,0,0.35);
 
-animation:textIn 1.5s ease;
+animation:
+textIn 1.6s ease;
 }
 
 @keyframes textIn{
 
 from{
 opacity:0;
-filter:blur(10px);
-transform:translateX(-50%) translateY(20px);
+filter:blur(12px);
+
+transform:
+translateX(-50%)
+translateY(20px);
 }
 
 to{
 opacity:1;
 filter:blur(0px);
-transform:translateX(-50%) translateY(0px);
+
+transform:
+translateX(-50%)
+translateY(0px);
 }
 
 }
 
 .fadeOut{
-animation:textOut 1s forwards;
+
+animation:
+textOut 1s forwards;
 }
 
 @keyframes textOut{
@@ -130,18 +187,26 @@ animation:textOut 1s forwards;
 from{
 opacity:1;
 filter:blur(0px);
-transform:translateX(-50%) translateY(0px);
+
+transform:
+translateX(-50%)
+translateY(0px);
 }
 
 to{
 opacity:0;
 filter:blur(12px);
-transform:translateX(-50%) translateY(-25px);
+
+transform:
+translateX(-50%)
+translateY(-24px);
 }
 
 }
 
+/* ========================= */
 /* BOTÃO ORÁCULO */
+/* ========================= */
 
 #oracleButton{
 
@@ -150,17 +215,20 @@ position:absolute;
 bottom:5%;
 left:50%;
 
-transform:translateX(-50%);
+transform:
+translateX(-50%);
 
-z-index:10;
+z-index:20;
 
-background:rgba(0,0,0,0.7);
+background:
+rgba(0,0,0,0.72);
 
-color:#f0d3a0;
+color:#f2d3a0;
 
-border:2px solid rgba(255,220,120,0.2);
+border:
+2px solid rgba(255,220,120,0.18);
 
-padding:16px 32px;
+padding:16px 34px;
 
 border-radius:40px;
 
@@ -169,17 +237,26 @@ font-size:1.2rem;
 letter-spacing:2px;
 
 box-shadow:
-0 0 20px rgba(255,180,80,0.2);
+0 0 20px rgba(255,180,80,0.15);
 
-transition:0.5s;
+transition:
+0.7s;
 }
 
 .hideOracle{
+
 opacity:0;
-transform:translateX(-50%) scale(0.7);
+
+transform:
+translateX(-50%)
+scale(0.7);
+
+filter:blur(10px);
 }
 
+/* ========================= */
 /* INTRO */
+/* ========================= */
 
 #intro{
 
@@ -191,7 +268,7 @@ z-index:9999;
 overflow:hidden;
 }
 
-/* SANTA ATRÁS DAS PORTAS */
+/* FUNDO ATRÁS DAS PORTAS */
 
 #introBackground{
 
@@ -199,6 +276,7 @@ position:absolute;
 inset:0;
 
 background-image:url("background.jpg");
+
 background-size:contain;
 background-repeat:no-repeat;
 background-position:center;
@@ -208,7 +286,9 @@ background-color:#000;
 z-index:1;
 }
 
+/* ========================= */
 /* PORTAS */
+/* ========================= */
 
 .door{
 
@@ -219,32 +299,54 @@ top:0;
 width:50%;
 height:100%;
 
-z-index:3;
+z-index:5;
 
-background:
-linear-gradient(
-to right,
-#111,
-#2d2d2d,
-#161616
-);
+overflow:hidden;
 
-box-shadow:
-inset 0 0 60px rgba(0,0,0,0.9),
-inset 0 0 20px rgba(255,220,120,0.05);
-
-transition:transform 2.2s cubic-bezier(.7,0,.2,1);
+transition:
+transform 2.3s cubic-bezier(.7,0,.2,1);
 }
+
+/* MESMA IMAGEM */
+
+.door::before{
+
+content:"";
+
+position:absolute;
+
+top:0;
+height:100%;
+
+width:200%;
+
+background-image:url("door.png");
+
+background-size:100% 100%;
+background-repeat:no-repeat;
+}
+
+/* ESQUERDA */
 
 .left{
 left:0;
-border-right:2px solid rgba(255,220,120,0.1);
 }
+
+.left::before{
+left:0;
+}
+
+/* DIREITA */
 
 .right{
 right:0;
-border-left:2px solid rgba(255,220,120,0.1);
 }
+
+.right::before{
+right:0;
+}
+
+/* ABERTURA */
 
 .open .left{
 transform:translateX(-100%);
@@ -254,66 +356,61 @@ transform:translateX(-100%);
 transform:translateX(100%);
 }
 
-/* TEXTURA PEDRA */
-
-.door::before{
-
-content:"";
-
-position:absolute;
-inset:0;
-
-background:
-repeating-linear-gradient(
-0deg,
-rgba(255,255,255,0.02) 0px,
-rgba(255,255,255,0.02) 2px,
-transparent 2px,
-transparent 20px
-);
-}
-
+/* ========================= */
 /* BOTÃO ENTRAR */
+/* ========================= */
 
 #enterButton{
 
 position:absolute;
 
 left:50%;
-top:76%;
+top:77%;
 
-transform:translate(-50%,-50%);
+transform:
+translate(-50%,-50%);
 
-z-index:5;
+z-index:10;
 
-background:rgba(0,0,0,0.72);
+background:
+rgba(0,0,0,0.72);
 
 color:#f2d4a0;
 
-border:2px solid rgba(255,220,120,0.2);
+border:
+2px solid rgba(255,220,120,0.18);
 
 padding:18px 34px;
 
 border-radius:40px;
 
-font-size:1.2rem;
+font-size:1.15rem;
 
 letter-spacing:3px;
 
 white-space:nowrap;
 
 box-shadow:
-0 0 20px rgba(255,180,80,0.2);
+0 0 20px rgba(255,180,80,0.15);
 
-transition:0.7s;
+transition:
+0.8s;
 }
 
 .hideButton{
+
 opacity:0;
-transform:translate(-50%,-50%) scale(0.7);
+
+transform:
+translate(-50%,-50%)
+scale(0.7);
+
+filter:blur(10px);
 }
 
+/* ========================= */
 /* PARTÍCULAS */
+/* ========================= */
 
 .particle{
 
@@ -324,12 +421,16 @@ height:3px;
 
 border-radius:50%;
 
-background:rgba(255,210,120,0.75);
+background:
+rgba(255,210,120,0.78);
 
 box-shadow:
 0 0 10px rgba(255,190,90,0.8);
 
-animation:floatUp linear infinite;
+animation:
+floatUp linear infinite;
+
+z-index:2;
 }
 
 @keyframes floatUp{
@@ -350,11 +451,14 @@ opacity:0;
 
 }
 
+/* ========================= */
 /* MOBILE */
+/* ========================= */
 
 @media(max-width:768px){
 
 #bg{
+
 width:100%;
 height:auto;
 }
@@ -381,7 +485,7 @@ padding:14px 24px;
 
 font-size:1rem;
 
-padding:16px 26px;
+padding:16px 24px;
 
 letter-spacing:2px;
 }
@@ -393,21 +497,35 @@ letter-spacing:2px;
 
 <body>
 
+<!-- ALTAR -->
+
 <div id="altar">
 
-<img src="background.jpg" id="bg">
+<img
+src="background.jpg"
+id="bg">
 
 <div id="textBox">
 
-Santa Muerte, guía mis pensamientos,
-protege mi espíritu y aleja toda oscuridad de mi camino.
-Permite que mi alma encuentre claridad,
-paz y fuerza para continuar. Amén.
+Santa Muerte,
+guía mis pensamientos,
+protege mi espíritu
+y aleja toda oscuridad
+de mi camino.
+
+Permite que mi alma
+encuentre claridad,
+paz y fuerza
+para continuar.
+
+Amén.
 
 </div>
 
 <button id="oracleButton">
-Revelar Oráculo
+
+✦ Revelar Oráculo ✦
+
 </button>
 
 </div>
@@ -422,18 +540,31 @@ Revelar Oráculo
 <div class="door right"></div>
 
 <button id="enterButton">
+
 ✦ Entrar al Altar ✦
+
 </button>
 
 </div>
 
-<audio id="music" loop playsinline>
-<source src="https://files.catbox.moe/h6a4w1.mp3" type="audio/mpeg">
+<!-- ÁUDIO -->
+
+<audio
+id="music"
+loop
+playsinline>
+
+<source
+src="https://files.catbox.moe/h6a4w1.mp3"
+type="audio/mpeg">
+
 </audio>
 
 <script>
 
-/* ORÁCULOS */
+/* ========================= */
+/* FRASES */
+/* ========================= */
 
 const messages=[
 
@@ -447,21 +578,36 @@ const messages=[
 
 "Escucha el silencio. Allí está la respuesta.",
 
-"El miedo desaparece cuando aceptas tu transformación."
+"El miedo desaparece cuando aceptas tu transformación.",
+
+"La Santa observa tus pasos en silencio.",
+
+"Tu energía está cambiando esta noche."
 
 ];
 
+/* ========================= */
 /* ELEMENTOS */
+/* ========================= */
 
-const enterButton=document.getElementById("enterButton");
-const intro=document.getElementById("intro");
+const enterButton=
+document.getElementById("enterButton");
 
-const music=document.getElementById("music");
+const intro=
+document.getElementById("intro");
 
-const textBox=document.getElementById("textBox");
-const oracleButton=document.getElementById("oracleButton");
+const music=
+document.getElementById("music");
 
+const textBox=
+document.getElementById("textBox");
+
+const oracleButton=
+document.getElementById("oracleButton");
+
+/* ========================= */
 /* ENTRAR */
+/* ========================= */
 
 enterButton.addEventListener("click",()=>{
 
@@ -475,16 +621,20 @@ setTimeout(()=>{
 
 intro.classList.add("open");
 
-},500);
+},400);
 
 });
 
+/* ========================= */
 /* ORÁCULO */
+/* ========================= */
 
 oracleButton.addEventListener("click",()=>{
 
 if(navigator.vibrate){
-navigator.vibrate(150);
+
+navigator.vibrate(120);
+
 }
 
 oracleButton.classList.add("hideOracle");
@@ -494,7 +644,9 @@ textBox.classList.add("fadeOut");
 setTimeout(()=>{
 
 const random=
-messages[Math.floor(Math.random()*messages.length)];
+messages[
+Math.floor(Math.random()*messages.length)
+];
 
 textBox.innerHTML=random;
 
@@ -502,30 +654,36 @@ textBox.classList.remove("fadeOut");
 
 void textBox.offsetWidth;
 
-textBox.style.animation="textIn 1.5s ease";
+textBox.style.animation=
+"textIn 1.6s ease";
 
 },1000);
 
 });
 
+/* ========================= */
 /* PARTÍCULAS */
+/* ========================= */
 
-for(let i=0;i<35;i++){
+for(let i=0;i<40;i++){
 
-const p=document.createElement("div");
+const p=
+document.createElement("div");
 
 p.classList.add("particle");
 
-const side=Math.random()>0.5;
+const leftSide=
+Math.random()>0.5;
 
-if(side){
+if(leftSide){
 
-p.style.left=(Math.random()*12)+"%";
+p.style.left=
+(Math.random()*12)+"%";
 
 }else{
 
-p.style.left=(88+Math.random()*12)+"%";
-
+p.style.left=
+(88+Math.random()*12)+"%";
 }
 
 p.style.bottom="-20px";
